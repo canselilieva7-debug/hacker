@@ -3,44 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hesap Hareketi - Demo</title>
+<title>Security Terminal - Prank</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#edf0f5;font-family:Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
-.card{background:white;border-radius:22px;padding:28px;width:100%;max-width:410px;text-align:center;box-shadow:0 12px 35px #0002}
-.header{display:flex;justify-content:space-between;align-items:center;font-weight:bold}
-.demo{background:#e2e8f0;padding:7px 12px;border-radius:20px;font-size:12px}
-.amount{font-size:42px;color:#dc2626;font-weight:bold;margin:30px 0}
-.row{display:flex;justify-content:space-between;gap:12px;text-align:left;margin:20px 0}
-.muted{color:#64748b}
-.note{font-size:12px;color:#64748b;margin-top:25px}
-#surprise{display:none;background:#190c15;color:white}
-#surprise h1{color:#ff9bb8}
+body{margin:0;background:#050505;color:#ff3333;font-family:monospace;min-height:100vh;padding:25px;overflow-x:hidden}
+header{border-bottom:1px solid #722;padding-bottom:15px;font-size:18px;font-weight:bold}
+small{color:#b66}
+#terminal{white-space:pre-wrap;line-height:1.9;font-size:15px;margin-top:25px}
+#warning{display:none;margin-top:30px;text-align:center;border:2px solid red;padding:25px;background:#260505;animation:pulse .5s infinite alternate}
+#warning h1{font-size:30px}
+#surprise{display:none;text-align:center;margin-top:20vh;color:white}
+#surprise h1{color:#ff5577;font-size:32px}
+#surprise p{font-size:21px}
+#restart{background:#ff5577;color:white;border:0;border-radius:10px;padding:13px 20px;font-size:16px}
+@keyframes pulse{from{opacity:.65}to{opacity:1}}
+@keyframes shake{0%{transform:translate(0)}25%{transform:translate(3px,-2px)}50%{transform:translate(-3px,2px)}75%{transform:translate(2px,2px)}100%{transform:translate(0)}}
+.shake{animation:shake .15s 8}
 </style>
 </head>
 <body>
-<div class="card" id="payment">
-<div class="header"><span>Hesap hareketi</span><span class="demo">DEMO</span></div>
-<h2>Hesabınızdan para çıkışı</h2>
-<div class="amount">−5.000,00 €</div>
-<hr>
-<div class="row"><span class="muted">Hesap sahibi</span><b>Renato</b></div>
-<div class="row"><span class="muted">Parayı çeken</span><b>Dzhansel Ilieva</b></div>
-<div class="row"><span class="muted">İşlem türü</span><b>Şaka simülasyonu</b></div>
-<p class="note">Bu gerçek bir banka işlemi değildir.</p>
+<div id="scene">
+<header>⚠ SECURITY TERMINAL <small>— PRANK SIMULATION</small></header>
+<pre id="terminal"></pre>
+<div id="warning">
+<h1>⚠ RENATO ⚠</h1>
+<h2>DEVICE ACCESS SIMULATED</h2>
+<p>WARNING: UNKNOWN ACTIVITY</p>
 </div>
-<div class="card" id="surprise">
+</div>
+<div id="surprise">
 <h1>😂 RENATO, YAKALANDIN!</h1>
-<h2>5.000 €'nu değil, kalbini çaldım! ❤️</h2>
-<p>Dzhansel Ilieva 💋</p>
-<p>Seni seviyorum aşkım!</p>
+<p>Telefonun değil, kalbin ele geçirildi! ❤️</p>
+<p>Şaka aşkım! Seni seviyorum. 💋</p>
+<p>— Dzhansel Ilieva</p>
+<button id="restart" onclick="location.reload()">Tekrar izle 😈</button>
 </div>
 <script>
-setTimeout(function(){
-document.getElementById("payment").style.display="none";
+const lines=[
+"> Initializing security scan...",
+"> Checking device...",
+"> Scanning connection...",
+"> Unknown activity detected...",
+"> Loading simulation...",
+"> WARNING: SECURITY ALERT",
+"> SIMULATING DEVICE TAKEOVER...",
+"> ACCESS DENIED",
+"> TARGET: RENATO"
+];
+let i=0;
+const timer=setInterval(()=>{
+if(i<lines.length){
+document.getElementById("terminal").textContent+=lines[i++]+"\n";
+}else{
+clearInterval(timer);
+document.getElementById("warning").style.display="block";
+document.body.classList.add("shake");
+setTimeout(()=>{
+document.body.classList.remove("shake");
+document.getElementById("scene").style.display="none";
 document.getElementById("surprise").style.display="block";
-document.body.style.background="#190c15";
-},7000);
+document.body.style.background="#160914";
+},2500);
+}
+},650);
 </script>
 </body>
 </html>
