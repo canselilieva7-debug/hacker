@@ -3,69 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Security Terminal - Prank</title>
+<title>ZUMO SHOP - Şaka</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#050505;color:#ff3333;font-family:monospace;min-height:100vh;padding:25px;overflow-x:hidden}
-header{border-bottom:1px solid #722;padding-bottom:15px;font-size:18px;font-weight:bold}
-small{color:#b66}
-#terminal{white-space:pre-wrap;line-height:1.9;font-size:15px;margin-top:25px}
-#warning{display:none;margin-top:30px;text-align:center;border:2px solid red;padding:25px;background:#260505;animation:pulse .5s infinite alternate}
-#warning h1{font-size:30px}
-#surprise{display:none;text-align:center;margin-top:20vh;color:white}
-#surprise h1{color:#ff5577;font-size:32px}
-#surprise p{font-size:21px}
-#restart{background:#ff5577;color:white;border:0;border-radius:10px;padding:13px 20px;font-size:16px}
-@keyframes pulse{from{opacity:.65}to{opacity:1}}
-@keyframes shake{0%{transform:translate(0)}25%{transform:translate(3px,-2px)}50%{transform:translate(-3px,2px)}75%{transform:translate(2px,2px)}100%{transform:translate(0)}}
-.shake{animation:shake .15s 8}
+body{margin:0;background:#fff4ec;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:18px}
+.card{background:white;width:100%;max-width:420px;border-radius:22px;padding:26px;text-align:center;box-shadow:0 12px 35px #0002}
+.logo{font-weight:900;color:#f05a28;font-size:27px}
+.demo{font-size:12px;color:#777;margin:12px}
+.gift{font-size:72px;margin:25px}
+h1{font-size:28px;color:#e85b23}
+button{background:#f05a28;color:white;border:0;border-radius:14px;padding:17px;width:100%;font-size:18px;font-weight:bold;margin-top:20px}
+#alert,#ending{display:none}
+.amount{color:#dc2626;font-size:46px;font-weight:bold;margin:30px 0}
+.note{font-size:13px;color:#777}
+#ending h1{color:#15803d}
 </style>
 </head>
 <body>
-<div id="scene">
-<header>⚠ SECURITY TERMINAL <small>— PRANK SIMULATION</small></header>
-<pre id="terminal"></pre>
-<div id="warning">
-<h1>⚠ RENATO ⚠</h1>
-<h2>DEVICE ACCESS SIMULATED</h2>
-<p>WARNING: UNKNOWN ACTIVITY</p>
+<div class="card" id="shop">
+<div class="logo">🛍️ ZUMO SHOP</div>
+<div class="demo">ŞAKA / DEMO MAĞAZA</div>
+<div class="gift">🎁</div>
+<h1>50 € HEDİYE KAZAN!</h1>
+<p>Sürpriz kutunu aç, hediyeni keşfet!</p>
+<button onclick="showAlert()">🎁 Hediyemi Aç</button>
+<p class="note">Eğlence amaçlı kurgu sayfa</p>
 </div>
+<div class="card" id="alert">
+<h2>⚠️ İşlem simülasyonu</h2>
+<p>Renato, hesabından para çıkışı:</p>
+<div class="amount">−50,00 €</div>
+<p class="note">Bu gerçek bir banka işlemi değildir.</p>
 </div>
-<div id="surprise">
-<h1>😂 RENATO, YAKALANDIN!</h1>
-<p>Telefonun değil, kalbin ele geçirildi! ❤️</p>
+<div class="card" id="ending">
+<div class="gift">😂❤️</div>
+<h1>YAKALANDIN RENATO!</h1>
+<h2>50 €'nu değil, birkaç saniyeni çaldım!</h2>
 <p>Şaka aşkım! Seni seviyorum. 💋</p>
 <p>— Dzhansel Ilieva</p>
-<button id="restart" onclick="location.reload()">Tekrar izle 😈</button>
+<button onclick="location.reload()">Tekrar oyna</button>
 </div>
 <script>
-const lines=[
-"> Initializing security scan...",
-"> Checking device...",
-"> Scanning connection...",
-"> Unknown activity detected...",
-"> Loading simulation...",
-"> WARNING: SECURITY ALERT",
-"> SIMULATING DEVICE TAKEOVER...",
-"> ACCESS DENIED",
-"> TARGET: RENATO"
-];
-let i=0;
-const timer=setInterval(()=>{
-if(i<lines.length){
-document.getElementById("terminal").textContent+=lines[i++]+"\n";
-}else{
-clearInterval(timer);
-document.getElementById("warning").style.display="block";
-document.body.classList.add("shake");
-setTimeout(()=>{
-document.body.classList.remove("shake");
-document.getElementById("scene").style.display="none";
-document.getElementById("surprise").style.display="block";
-document.body.style.background="#160914";
-},2500);
+function showAlert(){
+document.getElementById("shop").style.display="none";
+document.getElementById("alert").style.display="block";
+setTimeout(function(){
+document.getElementById("alert").style.display="none";
+document.getElementById("ending").style.display="block";
+},4500);
 }
-},650);
 </script>
 </body>
 </html>
