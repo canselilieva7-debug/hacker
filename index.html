@@ -1,1 +1,44 @@
-
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security Terminal</title>
+<style>
+body{background:#050805;color:#00ff66;font:17px monospace;padding:25px}
+#sonuc{display:none;text-align:center;margin-top:40px;color:white}
+</style>
+</head>
+<body>
+<h2>SECURITY TERMINAL</h2>
+<pre id="ekran"></pre>
+<div id="sonuc">
+<h1>❤️ RENATO ❤️</h1>
+<h2>KALBİN HACKLENDİ! 😂</h2>
+<p>Şaka aşkım! Seni seviyorum. 💋</p>
+<p>— Karın ❤️</p>
+</div>
+<script>
+const satirlar=[
+"> Initializing...",
+"> Connection established",
+"> Loading security modules...",
+"> Running simulation...",
+"> Progress: 25%",
+"> Progress: 50%",
+"> Progress: 75%",
+"> Progress: 100%",
+"> SIMULATION COMPLETE"
+];
+let i=0;
+const t=setInterval(()=>{
+if(i<satirlar.length){
+document.getElementById("ekran").textContent+=satirlar[i++]+"\n";
+}else{
+clearInterval(t);
+document.getElementById("sonuc").style.display="block";
+}
+},800);
+</script>
+</body>
+</html>
