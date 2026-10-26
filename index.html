@@ -2,43 +2,41 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Security Terminal</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ödeme Bildirimi</title>
 <style>
-body{background:#050805;color:#00ff66;font:17px monospace;padding:25px}
-#sonuc{display:none;text-align:center;margin-top:40px;color:white}
+*{box-sizing:border-box}
+body{margin:0;background:#e9edf2;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.card{background:white;border-radius:20px;padding:28px;width:100%;max-width:400px;text-align:center;box-shadow:0 12px 35px #0002}
+.small{color:#64748b;font-size:14px}
+.amount{font-size:42px;font-weight:bold;color:#15803d;margin:25px 0}
+.pill{background:#dcfce7;color:#166534;padding:9px 16px;border-radius:30px;display:inline-block}
+.note{font-size:12px;color:#64748b;margin-top:24px}
+#surprise{display:none;background:#07170b;color:white}
+#surprise h1{color:#5cff8d}
 </style>
 </head>
 <body>
-<h2>SECURITY TERMINAL</h2>
-<pre id="ekran"></pre>
-<div id="sonuc">
-<h1>❤️ RENATO ❤️</h1>
-<h2>KALBİN HACKLENDİ! 😂</h2>
-<p>Şaka aşkım! Seni seviyorum. 💋</p>
-<p>— Karın ❤️</p>
+<div class="card" id="payment">
+<div class="small">ÖDEME BİLDİRİMİ</div>
+<h2>Hesabınıza para yatırıldı</h2>
+<div class="amount">+5.000,00 €</div>
+<div class="pill">✓ İşlem başarılı</div>
+<p class="small">Alıcı: Renato</p>
+<p class="note">Demo bildirim • Gerçek banka işlemi değildir</p>
+</div>
+<div class="card" id="surprise">
+<h1>😂 YAKALANDIN RENATO!</h1>
+<h2>5.000 € değil, 5.000 öpücük kazandın! 💋</h2>
+<p>Seni seviyorum! ❤️</p>
+<p>— Karın</p>
 </div>
 <script>
-const satirlar=[
-"> Initializing...",
-"> Connection established",
-"> Loading security modules...",
-"> Running simulation...",
-"> Progress: 25%",
-"> Progress: 50%",
-"> Progress: 75%",
-"> Progress: 100%",
-"> SIMULATION COMPLETE"
-];
-let i=0;
-const t=setInterval(()=>{
-if(i<satirlar.length){
-document.getElementById("ekran").textContent+=satirlar[i++]+"\n";
-}else{
-clearInterval(t);
-document.getElementById("sonuc").style.display="block";
-}
-},800);
+setTimeout(function(){
+document.getElementById("payment").style.display="none";
+document.getElementById("surprise").style.display="block";
+document.body.style.background="#07170b";
+},7000);
 </script>
 </body>
 </html>
