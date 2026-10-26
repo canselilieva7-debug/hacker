@@ -3,39 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ödeme Bildirimi</title>
+<title>Hesap Hareketi - Demo</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#e9edf2;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
-.card{background:white;border-radius:20px;padding:28px;width:100%;max-width:400px;text-align:center;box-shadow:0 12px 35px #0002}
-.small{color:#64748b;font-size:14px}
-.amount{font-size:42px;font-weight:bold;color:#15803d;margin:25px 0}
-.pill{background:#dcfce7;color:#166534;padding:9px 16px;border-radius:30px;display:inline-block}
-.note{font-size:12px;color:#64748b;margin-top:24px}
-#surprise{display:none;background:#07170b;color:white}
-#surprise h1{color:#5cff8d}
+body{margin:0;background:#edf0f5;font-family:Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:white;border-radius:22px;padding:28px;width:100%;max-width:410px;text-align:center;box-shadow:0 12px 35px #0002}
+.header{display:flex;justify-content:space-between;align-items:center;font-weight:bold}
+.demo{background:#e2e8f0;padding:7px 12px;border-radius:20px;font-size:12px}
+.amount{font-size:42px;color:#dc2626;font-weight:bold;margin:30px 0}
+.row{display:flex;justify-content:space-between;gap:12px;text-align:left;margin:20px 0}
+.muted{color:#64748b}
+.note{font-size:12px;color:#64748b;margin-top:25px}
+#surprise{display:none;background:#190c15;color:white}
+#surprise h1{color:#ff9bb8}
 </style>
 </head>
 <body>
 <div class="card" id="payment">
-<div class="small">ÖDEME BİLDİRİMİ</div>
-<h2>Hesabınıza para yatırıldı</h2>
-<div class="amount">+5.000,00 €</div>
-<div class="pill">✓ İşlem başarılı</div>
-<p class="small">Alıcı: Renato</p>
-<p class="note">Demo bildirim • Gerçek banka işlemi değildir</p>
+<div class="header"><span>Hesap hareketi</span><span class="demo">DEMO</span></div>
+<h2>Hesabınızdan para çıkışı</h2>
+<div class="amount">−5.000,00 €</div>
+<hr>
+<div class="row"><span class="muted">Hesap sahibi</span><b>Renato</b></div>
+<div class="row"><span class="muted">Parayı çeken</span><b>Dzhansel Ilieva</b></div>
+<div class="row"><span class="muted">İşlem türü</span><b>Şaka simülasyonu</b></div>
+<p class="note">Bu gerçek bir banka işlemi değildir.</p>
 </div>
 <div class="card" id="surprise">
-<h1>😂 YAKALANDIN RENATO!</h1>
-<h2>5.000 € değil, 5.000 öpücük kazandın! 💋</h2>
-<p>Seni seviyorum! ❤️</p>
-<p>— Karın</p>
+<h1>😂 RENATO, YAKALANDIN!</h1>
+<h2>5.000 €'nu değil, kalbini çaldım! ❤️</h2>
+<p>Dzhansel Ilieva 💋</p>
+<p>Seni seviyorum aşkım!</p>
 </div>
 <script>
 setTimeout(function(){
 document.getElementById("payment").style.display="none";
 document.getElementById("surprise").style.display="block";
-document.body.style.background="#07170b";
+document.body.style.background="#190c15";
 },7000);
 </script>
 </body>
